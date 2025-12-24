@@ -1,14 +1,17 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+import threading
 
 class StdinPublisher(Node):
     def __init__(self):
         super().__init__('stdin_publisher')
-        self.publisher_ = self.create_publisher(String, '/stdin', 10)
+        self.pub = self.create_publisher(String, '/stdin', 10)
         self.get_logger().info('Type something and press Enter...')
 
-    def run(self):
+        threading.Thread(target=self._read_loop, daemon=True).start()
+
+    def _read_loop(self):
         while rclpy.ok():
             try:
                 line = input()
@@ -16,11 +19,17 @@ class StdinPublisher(Node):
                 break
             msg = String()
             msg.data = line
-            self.publisher_.publish(msg)
+            self.pub.publish(msg)
+            self.get_logger().info(f'Published: {line}')
 
 def main():
     rclpy.init()
     node = StdinPublisher()
-    node.run()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
     node.destroy_node()
     rclpy.shutdown()
+
+
