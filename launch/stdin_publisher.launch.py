@@ -4,11 +4,11 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='stdin_publisher',
-            executable='stdin_publisher_node',
+            package='mypkg',
+            executable='stdin_publisher',
             name='stdin_publisher',
-            output='screen'
+            output='screen',
+            emulate_tty=True
         )
     ])
-:
 
