@@ -26,8 +26,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'talker = mypkg.talker:main', #talker.pyのmain関数という意味
-            'listener = mypkg.listener:main', 
+            'stdin_publisher = mypkg.stdin_publisher:main', 
         ],
     },
 )
