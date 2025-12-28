@@ -9,14 +9,13 @@
 - 端末１
 　```
      $ ros2 topic mypkg stdin_publisher
-[INFO] [1766911068.830241415] [stdin_pubulisher]: Type something and press enter...
-hello world
-data: hello worl
+     [INFO] [1766911068.830241415] [stdin_pubulisher]: Type something and press enter...
+     hello world
   ```
 - 端末2
   ```
      $ ros2 topic echo /stdin
-data: hello world
+     data: hello world
   ```
 ## 必要なソフトウェア
 - Python
