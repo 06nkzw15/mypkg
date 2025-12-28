@@ -7,16 +7,16 @@
 - このプログラムは標準入力をそのままトピックに流すものです。
 # 実行例
 - 端末１
-　```
+```
      $ ros2 topic mypkg stdin_publisher
      [INFO] [1766911068.830241415] [stdin_pubulisher]: Type something and press enter...
      hello world
-  ```
+```
 - 端末2
-  ```
+```
      $ ros2 topic echo /stdin
      data: hello world
-  ```
+```
 ## 必要なソフトウェア
 - Python
   - テスト済みバージョン: 3.7〜3.10
