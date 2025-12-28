@@ -1,12 +1,23 @@
 # mypkg
 ![test](https://github.com/06nkzw15/robosys2025/actions/workflows/test.yml/badge.svg)
 ロボットシステム課題2
-# sortコマンド
-
-- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このプログラムは。
+- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布お
+よび使用が許可されます．
+# stdin_publisherコマンド
+- このプログラムは標準入力をそのままトピックに流すものです。
 # 実行例
-- 実行例
+- 端末１
+　```
+     $ ros2 topic mypkg stdin_publisher
+[INFO] [1766911068.830241415] [stdin_pubulisher]: Type something and press enter...
+hello world
+data: hello worl
+  ```
+- 端末2
+  ```
+     $ ros2 topic echo /stdin
+data: hello world
+  ```
 ## 必要なソフトウェア
 - Python
   - テスト済みバージョン: 3.7〜3.10
