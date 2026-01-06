@@ -1,9 +1,10 @@
 # mypkg
 ![test](https://github.com/06nkzw15/robosys2025/actions/workflows/test.yml/badge.svg)
 ロボットシステム課題2
+# stdin_publisherコマンド
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布お
 よび使用が許可されます．
-# stdin_publisherコマンド
+- これはROS2のパッケージです。
 - このプログラムは標準入力をそのままトピックに流すものです。
 # 実行例
 - 端末１
