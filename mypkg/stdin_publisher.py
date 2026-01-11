@@ -1,4 +1,5 @@
-import rclpy
+# SPDX-FileCopyrightText: 2025 Taiki Nakazawa
+# SPDX-License-Identifier: BSD-3-Clauseimport rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 import threading
