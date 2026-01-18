@@ -1,12 +1,24 @@
 #!/bin/bash
+set -e
 
-dir=~
-[ "$1" != "" ] && dir="$1"
+# workspace directory
+WS=${1:-$HOME}/ros2_ws
 
-cd $dir/ros2_ws
+cd "$WS"
+
+# ROS 環境を source
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+
+# build
 colcon build
-source $dir/.bashrc
-timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
 
-cat /tmp/mypkg.log 
-grep 'Listen: 10'
+# 実行テスト（10秒）
+timeout 10 ros2 launch mypkg stdin_publisher.launch.py > /tmp/mypkg.log 2>&1 || true
+
+# ログ表示
+cat /tmp/mypkg.log
+
+# 期待されるログをチェック
+grep -q "Type something and press Enter" /tmp/mypkg.log
+
