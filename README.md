@@ -7,9 +7,10 @@
 ## ノード一覧
 - /stdin_publisher
 ## トピック一覧
-- '/parameter_events'  rcl_interfaces/msg/ParameterEvent
-- '/rosout'            rcl_interfaces/msg/Log
-- '/stdin'             std_msgs/msg/String
+|         トピック名     |              型                |
+- '/parameter_events'    rcl_interfaces/msg/ParameterEvent
+- '/rosout'              rcl_interfaces/msg/Log
+- '/stdin'               std_msgs/msg/String
 # 実行例
 - 端末１
 ```
