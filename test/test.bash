@@ -6,11 +6,11 @@ WS=${1:-$HOME}/ros2_ws
 cd "$WS"
 
 
-source /opt/ros/jazzy/setup.bash
+source /opt/ros/humble/setup.bash
 source install/setup.bash
 
 colcon build
-
+colcon test
 timeout 10 ros2 launch mypkg stdin_publisher.launch.py > /tmp/mypkg.log 2>&1 || true
 
 cat /tmp/mypkg.log
